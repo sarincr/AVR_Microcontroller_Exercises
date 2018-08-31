@@ -1,0 +1,2 @@
+.sc17049267804977892607.o: \
+ /home/angici/Desktop/Arduino/02.GPIO_In/07.XOR/.sc17049267804977892607.cpp
