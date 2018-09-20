@@ -1,0 +1,197 @@
+
+03.Timer0_TCNT.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .data         00000000  00800100  00800100  0000016a  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  1 .text         000000f6  00000000  00000000  00000074  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  2 .bss          00000001  00800100  00800100  0000016a  2**0
+                  ALLOC
+  3 .comment      00000030  00000000  00000000  0000016a  2**0
+                  CONTENTS, READONLY
+  4 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  0000019c  2**2
+                  CONTENTS, READONLY
+  5 .debug_aranges 00000030  00000000  00000000  000001d8  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_info   000006ce  00000000  00000000  00000208  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_abbrev 0000064a  00000000  00000000  000008d6  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_line   00000248  00000000  00000000  00000f20  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_frame  00000054  00000000  00000000  00001168  2**2
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_str    000003b8  00000000  00000000  000011bc  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 11 .debug_loc    0000003c  00000000  00000000  00001574  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 12 .debug_ranges 00000020  00000000  00000000  000015b0  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	0c 94 34 00 	jmp	0x68	; 0x68 <__ctors_end>
+   4:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+   8:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+   c:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  10:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  14:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  18:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  1c:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  20:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  24:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  28:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  2c:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  30:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  34:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  38:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  3c:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  40:	0c 94 55 00 	jmp	0xaa	; 0xaa <__vector_16>
+  44:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  48:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  4c:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  50:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  54:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  58:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  5c:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  60:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  64:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+
+00000068 <__ctors_end>:
+  68:	11 24       	eor	r1, r1
+  6a:	1f be       	out	0x3f, r1	; 63
+  6c:	cf ef       	ldi	r28, 0xFF	; 255
+  6e:	d8 e0       	ldi	r29, 0x08	; 8
+  70:	de bf       	out	0x3e, r29	; 62
+  72:	cd bf       	out	0x3d, r28	; 61
+
+00000074 <__do_clear_bss>:
+  74:	21 e0       	ldi	r18, 0x01	; 1
+  76:	a0 e0       	ldi	r26, 0x00	; 0
+  78:	b1 e0       	ldi	r27, 0x01	; 1
+  7a:	01 c0       	rjmp	.+2      	; 0x7e <.do_clear_bss_start>
+
+0000007c <.do_clear_bss_loop>:
+  7c:	1d 92       	st	X+, r1
+
+0000007e <.do_clear_bss_start>:
+  7e:	a1 30       	cpi	r26, 0x01	; 1
+  80:	b2 07       	cpc	r27, r18
+  82:	e1 f7       	brne	.-8      	; 0x7c <.do_clear_bss_loop>
+  84:	0e 94 66 00 	call	0xcc	; 0xcc <main>
+  88:	0c 94 79 00 	jmp	0xf2	; 0xf2 <_exit>
+
+0000008c <__bad_interrupt>:
+  8c:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
+
+00000090 <_Z11timer0_initv>:
+
+// initialize timer, interrupt and variable
+void timer0_init()
+{
+	// set up timer with prescaler = 256
+	TCCR0A |= (1 << CS02);
+  90:	84 b5       	in	r24, 0x24	; 36
+  92:	84 60       	ori	r24, 0x04	; 4
+  94:	84 bd       	out	0x24, r24	; 36
+	
+	// initialize counter
+	TCNT0 = 0;
+  96:	16 bc       	out	0x26, r1	; 38
+	
+	// enable overflow interrupt
+	TIMSK0 |= (1 << TOIE0);
+  98:	ee e6       	ldi	r30, 0x6E	; 110
+  9a:	f0 e0       	ldi	r31, 0x00	; 0
+  9c:	80 81       	ld	r24, Z
+  9e:	81 60       	ori	r24, 0x01	; 1
+  a0:	80 83       	st	Z, r24
+	
+	// enable global interrupts
+	sei();
+  a2:	78 94       	sei
+	
+	// initialize overflow counter variable
+	tot_overflow = 0;
+  a4:	10 92 00 01 	sts	0x0100, r1	; 0x800100 <_edata>
+  a8:	08 95       	ret
+
+000000aa <__vector_16>:
+}
+
+// TIMER0 overflow interrupt service routine
+// called whenever TCNT0 overflows
+ISR(TIMER0_OVF_vect)
+{
+  aa:	1f 92       	push	r1
+  ac:	0f 92       	push	r0
+  ae:	0f b6       	in	r0, 0x3f	; 63
+  b0:	0f 92       	push	r0
+  b2:	11 24       	eor	r1, r1
+  b4:	8f 93       	push	r24
+	// keep a track of number of overflows
+	tot_overflow++;
+  b6:	80 91 00 01 	lds	r24, 0x0100	; 0x800100 <_edata>
+  ba:	8f 5f       	subi	r24, 0xFF	; 255
+  bc:	80 93 00 01 	sts	0x0100, r24	; 0x800100 <_edata>
+}
+  c0:	8f 91       	pop	r24
+  c2:	0f 90       	pop	r0
+  c4:	0f be       	out	0x3f, r0	; 63
+  c6:	0f 90       	pop	r0
+  c8:	1f 90       	pop	r1
+  ca:	18 95       	reti
+
+000000cc <main>:
+
+int main(void)
+{
+	// connect led to pin PB5
+	DDRB = (1 << PORTB5);
+  cc:	80 e2       	ldi	r24, 0x20	; 32
+  ce:	84 b9       	out	0x04, r24	; 4
+	
+	// initialize timer
+	timer0_init();
+  d0:	0e 94 48 00 	call	0x90	; 0x90 <_Z11timer0_initv>
+		if (tot_overflow >= 254)  // NOTE: '>=' is used
+		{
+			// check if the timer count reaches 53
+			if (TCNT0 >=1)
+			{
+				PORTB ^= (1 << PORTB5);    // toggles the led
+  d4:	90 e2       	ldi	r25, 0x20	; 32
+	
+	// loop forever
+	while(1)
+	{
+		// check if no. of overflows = 254
+		if (tot_overflow >= 254)  // NOTE: '>=' is used
+  d6:	80 91 00 01 	lds	r24, 0x0100	; 0x800100 <_edata>
+  da:	8e 3f       	cpi	r24, 0xFE	; 254
+  dc:	e0 f3       	brcs	.-8      	; 0xd6 <main+0xa>
+		{
+			// check if the timer count reaches 53
+			if (TCNT0 >=1)
+  de:	86 b5       	in	r24, 0x26	; 38
+  e0:	88 23       	and	r24, r24
+  e2:	c9 f3       	breq	.-14     	; 0xd6 <main+0xa>
+			{
+				PORTB ^= (1 << PORTB5);    // toggles the led
+  e4:	85 b1       	in	r24, 0x05	; 5
+  e6:	89 27       	eor	r24, r25
+  e8:	85 b9       	out	0x05, r24	; 5
+				TCNT0 = 0;            // reset counter
+  ea:	16 bc       	out	0x26, r1	; 38
+				tot_overflow = 0;     // reset overflow counter
+  ec:	10 92 00 01 	sts	0x0100, r1	; 0x800100 <_edata>
+  f0:	f2 cf       	rjmp	.-28     	; 0xd6 <main+0xa>
+
+000000f2 <_exit>:
+  f2:	f8 94       	cli
+
+000000f4 <__stop_program>:
+  f4:	ff cf       	rjmp	.-2      	; 0xf4 <__stop_program>
