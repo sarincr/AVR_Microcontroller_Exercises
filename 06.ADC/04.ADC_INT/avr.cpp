@@ -20,18 +20,7 @@ int main(void)
     
     while (1)
     {
-            ADCSRA |= (1 << ADSC);    // Start the ADC conversion
-            while(ADCSRA & (1 << ADSC));  // Wait for conversion
-            ADCval = ADCL;     // First 8 Bit value 
-            ADCvalue = (ADCH << 8) + ADCval;  // Total value = H+L
-            if(ADCvalue>500)
-            {
-              PORTB=1<<PB5;  // PORTB to High
-            }
-            if(ADCvalue<500)
-            {
-              PORTB=0x00;  // PORTB to Low
-            }
+        
     }
 }
 

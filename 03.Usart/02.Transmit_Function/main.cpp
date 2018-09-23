@@ -6,9 +6,8 @@
 
 void serialSetup(void);
 void serialSend(char* sendString);
- 
-char ar[]= "hello worlds";
 
+char ar[]= "hello worlds";
 
 void serialSetup()
 {
@@ -29,8 +28,7 @@ void serialSend(char* sendString)
 int main(void)
 {
     serialSetup();
-    
- 
+}
 while(1)
 {
   serialSend(ar);
