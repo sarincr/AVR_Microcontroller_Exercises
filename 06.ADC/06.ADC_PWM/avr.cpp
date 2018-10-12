@@ -28,7 +28,6 @@ int main(void)
 {
   int ADC_X_VALUE,ADC_Y_VALUE,ADC_Z_VALUE;
   double Axout,Ayout,Azout,theta, psy, phi,roll,pitch,yaw;
-  Serial.begin(9600);  
   ADC_Init();  
   DDRB |= 1<<PB1; // PORT B Pin 1 as Input
   TCCR1A |= 1<<WGM11 ;  //  Fast PWM with ICR1
@@ -48,13 +47,6 @@ int main(void)
     Azout = (((double)(ADC_Z_VALUE*5)/1.024)-1600.0)/330.0;
     Ayout=10*Ayout;
     OCR1A=Ayout;
-
-    Serial.println(ADC_X_VALUE);
-    Serial.println(Ayout);
-    Serial.println( Azout);
-    Serial.println(".........................");
-
-
     _delay_ms(1000);
     
   }
