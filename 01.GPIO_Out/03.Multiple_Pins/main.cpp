@@ -15,12 +15,12 @@ int main(void)
   while(1) // A infinite loop unless returned 0
   {
     PORTB |=(1<<5); //Setting 5th Pin of PORT B to HIGH
-    _delay_ms(1000); // Adding 1000ms second delay
+    _delay_ms(100); // Adding 1000ms second delay
     PORTB &= ~(1 << 5);   //Setting 5th Pin of PORT B to LOW
-    _delay_ms(1000); // Adding 1000ms second delay
+    _delay_ms(100); // Adding 1000ms second delay
     PORTB |=(1<<4); //Setting 4th Pin of PORT B to HIGH
-    _delay_ms(1000); // Adding 1000ms second delay
+    _delay_ms(100); // Adding 1000ms second delay
     PORTB &= ~(1 << 4);   //Setting 4th Pin of PORT B to LOW
-    _delay_ms(1000); // Adding 1000ms second delay
+    _delay_ms(100); // Adding 1000ms second delay
   }
 }
