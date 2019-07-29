@@ -6,17 +6,17 @@
 int main(void) //main starts
 
 {
-  DDRB = DDRB | ( 1<<3) ; //Make pin 4 of port B as a output
-  DDRD = DDRD & ~(1<<5) ; // Make pin 5 of port D as a input
-  while (1) //initialize while loop
+  DDRB = 0xFF ; 
+  DDRD = 0x00;
+  while (1)  
   {
-    if(PIND & (1<<5) ) // if PIN5 of port D is high
+    if(PIND & (1<<5) ) 
     {
-    PORTB = PORTB | ( 1<<3) ; //PIN3 of port D is high
+    PORTB = 0xFF;  
     }
-    else //otherwise
+    else  
     {
-      PORTB = PORTB &  ~( 1<<3) ; //PIN3 of port D will remain low
+      PORTB = 0x00 ;
     }
   }
 }

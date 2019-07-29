@@ -7,7 +7,7 @@ int main (void)
 {
 
     DDRB = 0xFF;   // Set all Pins of PORTB as OUTPUT
-    DDRD &= 0xFF; // Set all Pins of PORTD as INPUT
+    DDRD &= 0x00; // Set all Pins of PORTD as INPUT
     PORTD |= 0x04;
     int x=0;
     while (1)
