@@ -1,21 +1,24 @@
-
-
 #include <avr/io.h>
+#include <util/delay.h>
 
 
-int main (void)
+
+int main(void) //main starts
+
 {
-
-    DDRB = 0xFF;   // Set all Pins of PORTB as OUTPUT
-    DDRD &= 0xFF; // Set all Pins of PORTD as INPUT
-    PORTD |= 0x04;
-
-    while (1)
+  DDRB = DDRB | ( 1<<3) ; //Make pin 4 of port B as a output
+  DDRD = DDRD & ~(1<<5) ; // Make pin 5 of port D as a input
+  while (1) //initialize while loop
+  {
+    if(PIND & (1<<5) ) // if PIN5 of port D is high
     {
-        if (PIND & 0x04) // Checking port status of PORTD wrto 4th Pin of Port D
-            PORTB &= ~0xFF;    // Setting up of all the pins of PORT B to Logic High
-        else
-            PORTB |= 0xFF; // Setting up of all the pins of PORT B to Logic Low
+    PORTB = PORTB | ( 1<<3) ; //PIN3 of port D is high
     }
-    return 0;
+    else //otherwise
+    {
+      PORTB = PORTB &  ~( 1<<3) ; //PIN3 of port D will remain low
+    }
+  }
 }
+
+ 
