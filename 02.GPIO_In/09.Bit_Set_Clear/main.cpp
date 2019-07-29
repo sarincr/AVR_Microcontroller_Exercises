@@ -6,14 +6,14 @@ int main (void)
 {
 
     DDRB = 0xFF;   // Set all Pins of PORTB as OUTPUT
-    DDRD &= 0xFF; // Set all Pins of PORTD as INPUT
+    DDRD &= 0x00; // Set all Pins of PORTD as INPUT
     while (1)
     {
 
-        if (BIT_IS_CLEAR(PIND, PD2))  // Comparing the status of Pin 2 of Port D with PIND register
-            PORTB |= (1<<PB5);   // Setting up Fifth Pin of Port 5 to Logic High
+        if (BIT_IS_CLEAR(PIND, PD5))   
+            PORTB |= (1<<PB3);    
         else
-            PORTB &= ~(1<<PB5); // Setting up Fifth Pin of Port 5 to Logic High
+            PORTB &= ~(1<<PB3);
     }
     return 0;
 }
