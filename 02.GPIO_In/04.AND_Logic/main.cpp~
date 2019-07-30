@@ -13,9 +13,9 @@ int main (void)
     {
       x=PIND & 0x08;
       y=PIND & 0x10;
-      if (x==1 || y==1)
+      if (x==1 && y==1)
       PORTB &= ~0x05;
-      if (x==0 || y==0)
+      if (x==0 && y==0)
       PORTB |= 0x05;  
     }
     return 0;
